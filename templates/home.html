@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="text-center text-info bg-dark py-4 mb-1">All Products</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="card-columns">
+            {% for item in products %}
+                <div class="card">
+                    <img class="card-img-top" src="{{item.image.url}}" alt="{{item.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">{{item.description}}</p>
+                        <p class="card-text pb-2">
+                            <span class="text-muted">{{item.created_at}}</span> 
+                            <a href="#" class="float-right btn btn-info">Add To Card</a>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
